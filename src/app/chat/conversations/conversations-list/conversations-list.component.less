@@ -1,0 +1,62 @@
+@import 'colors.less';
+
+section {
+  border-top: 1px solid #17161e;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 15px;
+
+  font-family: 'Ubuntu', sans-serif;
+
+  h2 {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+
+    font-weight: 400;
+    font-size: 1.6rem;
+
+    line-height: 1em;
+  }
+
+  .edit {
+    display: inline-block;
+    color: inherit;
+    font-weight: 400;
+    font-size: 0.8rem;
+    height: 1.1em;
+    line-height: 1.1em;
+  }
+
+  .conversationslist-content {
+    margin-top: 8px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0 0;
+    padding-right: 30px;
+
+    li {
+      a {
+        display: inline-block;
+        width: 100%;
+        line-height: 2em;
+        color: white;
+      }
+    }
+
+    li.active {
+      a {
+        color: @orange;
+      }
+    }
+  }
+
+  .empty {
+    font-style: italic;
+    line-height: 2em;
+    color: fade(white, 66%);
+  }
+}

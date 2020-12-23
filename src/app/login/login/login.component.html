@@ -1,0 +1,32 @@
+<div class="loginpage-root">
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="loginpage-main">
+    <div class="header">
+      <img class="logo" src="/assets/logo_141@2x.png" alt="" />
+    </div>
+
+    <div class="input-fields" *ngIf="!loadingVisible">
+      <input class="textinput" type="email" name="email" id="email"
+        required
+        [(ngModel)]="email"
+        placeholder="email" />
+
+      <input class="textinput" type="password" name="password" id="password"
+        required
+        [(ngModel)]="password"
+        placeholder="password" />
+
+      <input class="submitbutton" type="submit"
+        [disabled]="loginForm.form.invalid"
+        value="Login" />
+
+      <div class="footer">
+        no account? <a [routerLink]="['register']">register</a>
+      </div>
+    </div>
+
+    <div class="loading" *ngIf="loadingVisible">
+      <p>Just a moment please…</p>
+      <app-progress-bar [progress]="passwordHashingProgress"></app-progress-bar>
+    </div>
+  </form>
+</div>

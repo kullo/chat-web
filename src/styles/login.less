@@ -1,0 +1,82 @@
+@import 'colors.less';
+
+@borderGray: #dfdfdf;
+
+.loginpage-root {
+  background-color: @darkBlue;
+  color: white;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  .loginpage-main {
+    flex-basis: 320px;
+    flex-grow: 0;
+
+    padding: 0 10px;
+
+    .header {
+      padding-bottom: 30px;
+
+      .logo {
+        width: 141px;
+        height: 45px;
+      }
+    }
+
+    .textinput {
+      width: 100%;
+      margin-bottom: 28px;
+      border: 2px solid @borderGray;
+      border-radius: 10px;
+      line-height: 46px;
+      padding: 0 16px;
+    }
+
+    input:-webkit-autofill {
+      // hack to override autofill background
+      box-shadow: 0 0 0 50px tint(@orange, 75%) inset;
+    }
+
+    .textinput:focus {
+      outline: none;
+      border-color: @orange;
+    }
+
+    .submitbutton {
+      margin-top: 2px;
+      float: right;
+      background-color: @orange;
+      border: none;
+      padding: 0 18px;
+      line-height: 46px;
+      color: white;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      border: 2px solid @orange;
+    }
+
+    .submitbutton:focus {
+      outline: none;
+      border-color: @borderGray;
+    }
+
+    .submitbutton:disabled {
+      background-color: tint(@orange, 50%);
+      border-color: tint(@orange, 50%);
+    }
+
+    .footer {
+      padding-top: 40px;
+      clear: both;
+      text-align: center;
+    }
+  }
+
+  a {
+    color: white;
+  }
+}

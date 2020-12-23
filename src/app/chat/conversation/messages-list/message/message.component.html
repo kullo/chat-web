@@ -1,0 +1,65 @@
+<div class="message">
+  <ng-container *ngIf="data">
+    <app-user-picture *ngIf="!data.isContinuation"
+      [data]="authorPictureDataFromMessage(data)" class="author-picture"></app-user-picture>
+
+    <div *ngIf="!data.isContinuation" class="header">
+      {{ data.author.name }}
+      <span class="date">{{ fancyTime() }}</span>
+    </div>
+    <div class="body">
+      <div [innerHTML]="data.message.content | linkify"></div>
+
+      <ul class="attachments" *ngIf="thumbnailAttachments().length != 0">
+        <li *ngFor="let attachment of thumbnailAttachments()">
+          <button class="attachment thumbnail-attachment"
+            title="{{ attachment.name }}"
+            (click)="downloadAndSaveAttachment(attachment)">
+            <img
+              class="thumbnail"
+              [style.width.px]="attachment.thumbnail.width / 2"
+              [style.height.px]="attachment.thumbnail.height / 2"
+              thumbnail [thumbnail]="attachment.thumbnail" />
+            <div class="overlay"></div>
+          </button>
+        </li>
+      </ul>
+
+      <ul class="attachments" *ngIf="nonThumbnailAttachments().length != 0">
+        <li *ngFor="let attachment of nonThumbnailAttachments()">
+          <button class="attachment nonthumbnail-attachment"
+            title="{{ attachment.name }}"
+            (click)="downloadAndSaveAttachment(attachment)">
+            <div class="filethumb">
+              <div class="arrow-down"></div>
+            </div>
+            {{ shortFilename(attachment.name) }}
+          </button>
+        </li>
+      </ul>
+
+      <footer>
+        <span *ngFor="let reply of data.replies" [title]="reply.author.name">
+          <img class="reaction" *ngIf="reply.message.content == '❤️'" src="/assets/reactions/heart.svg" alt="❤️" /><!-- Red Heart -->
+          <img class="reaction" *ngIf="reply.message.content == '👍'" src="/assets/reactions/thumbs-up.svg" alt="👍" /><!-- Thumbs Up -->
+          <img class="reaction" *ngIf="reply.message.content == '👎'" src="/assets/reactions/thumbs-down.svg" alt="👎" /><!-- Thumbs Down -->
+          <img class="reaction" *ngIf="reply.message.content == '😀'" src="/assets/reactions/grinning-face.svg" alt="😀" /><!-- Grinning Face -->
+          <img class="reaction" *ngIf="reply.message.content == '😕'" src="/assets/reactions/confused-face.svg" alt="😕" /><!-- Confused Face -->
+          <img class="reaction" *ngIf="reply.message.content == '😮'" src="/assets/reactions/face-with-open-mouth.svg" alt="😮" /><!-- Face With Open Mouth -->
+        </span>
+
+        <div class="reactions-overlay" *ngIf="newReactionPopupVisible">
+          <button (click)="react('heart')"><img src="/assets/reactions/heart.svg" alt="❤️" /></button><!-- Red Heart -->
+          <button (click)="react('thumbs-up')"><img src="/assets/reactions/thumbs-up.svg" alt="👍" />️</button><!-- Thumbs Up -->
+          <button (click)="react('thumbs-down')"><img src="/assets/reactions/thumbs-down.svg" alt="👎" /></button><!-- Thumbs Down -->
+          <button (click)="react('grinning-face')"><img src="/assets/reactions/grinning-face.svg" alt="😀" /></button><!-- Grinning Face -->
+          <button (click)="react('confused-face')"><img src="/assets/reactions/confused-face.svg" alt="😕" /></button><!-- Confused Face -->
+          <button (click)="react('face-with-open-mouth')"><img src="/assets/reactions/face-with-open-mouth.svg" alt="😮" /></button><!-- Face With Open Mouth -->
+        </div>
+        <div class="hover-content">
+          <button class="ahref" (click)="newReactionPopupVisible = !newReactionPopupVisible">react</button>
+        </div>
+      </footer>
+    </div>
+  </ng-container>
+</div>

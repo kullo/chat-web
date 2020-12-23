@@ -1,0 +1,16 @@
+<h2>Available channels that can be joined</h2>
+
+<ul>
+  <li *ngFor="let conversation of availableChannels">
+    {{ conversation.title }}
+    <a *ngIf="!conversation.joined" [routerLink]="['..', conversation.id]">preview</a>
+    <button class="ahref" *ngIf="!conversation.joined" (click)="join(conversation.id)">join</button>
+    <button class="ahref" *ngIf="conversation.joined" (click)="leave(conversation.id)">leave</button>
+  </li>
+</ul>
+
+<h2>Create new room</h2>
+
+<form (ngSubmit)="onSubmit(channelName)" #createForm="ngForm">
+  <input type="text" #channelName placeholder="Title" />
+</form>

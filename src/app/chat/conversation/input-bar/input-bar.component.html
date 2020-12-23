@@ -1,0 +1,6 @@
+<form (ngSubmit)="onSubmit(textInput)" class="input-bar">
+  <input class="text-input" type="text" #textInput
+    i18n-placeholder="@@inputBarPlaceholder" placeholder="Write message …" />
+  <input class="submit-button" type="submit"
+    i18n-value="@@inputBarSend" value="Send" />
+</form>

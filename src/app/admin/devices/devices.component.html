@@ -1,0 +1,22 @@
+<table #devicesTable>
+  <tr>
+    <th>Owner</th>
+    <th>ID</th>
+    <th>Fingerprint</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let device of devices">
+    <td><span title="{{ device.owner.id }}">{{ device.owner.name }} ({{ device.owner.state }})</span></td>
+    <td><span title="{{ device.id }}">{{ device.shortId }}</span></td>
+    <td>
+      {{ device.fingerprint.part1 }}<br />
+      <input type="text" class="fingerprint-autocomplete"
+        placeholder="Type-in remaining words" size="40"
+        (input)="setFingerprintPart2(device.id, $event.target.value)"
+        />
+    </td>
+    <td>
+      <button class="ahref" (click)="activate(device.owner.id, device)">Activate device</button>
+    </td>
+  </tr>
+</table>

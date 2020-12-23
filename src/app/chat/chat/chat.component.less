@@ -1,0 +1,30 @@
+@import 'colors.less';
+
+.chat-container {
+  display: flex;
+  height: 100%;
+
+  .left {
+    flex-basis: 300px;
+    flex-grow: 0;
+
+    height: 100%;
+    background-color: @darkBlue;
+    color: white;
+
+    header {
+      height: 84px;
+
+      .logo {
+        width: 90px;
+        height: 30px;
+        margin-top: 24px;
+        margin-left: 32px;
+      }
+    }
+  }
+
+  .right {
+    flex-grow: 1;
+  }
+}

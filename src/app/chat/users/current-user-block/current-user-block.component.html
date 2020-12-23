@@ -1,0 +1,12 @@
+<div class="left">
+  <app-user-picture
+    appDropZone (filesDropped)="onFilesDropped($event)"
+    [data]="userPictureData"></app-user-picture>
+</div>
+
+<div class="right">
+  <div class="name">{{ name }}</div>
+  <div class="position">Art Director</div>
+
+  <app-connection-status-indicator (logoutRequested)="logoutRequested.emit()"></app-connection-status-indicator>
+</div>

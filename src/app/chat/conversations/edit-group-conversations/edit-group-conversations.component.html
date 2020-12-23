@@ -1,0 +1,13 @@
+<h2>Create new personal chat</h2>
+
+<ul>
+  <li *ngFor="let user of availableChatPartners"
+    (click)="select(user)" [class.selected]="isSelected(user)">
+    <app-user-picture
+      [data]="{ userId: user.id, user: user }"
+      class="picture"></app-user-picture>
+    {{ user.name }}
+  </li>
+</ul>
+
+<button (click)="submit()">Create chat</button>

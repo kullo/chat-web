@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template" target-language="de">
+    <body>
+      <trans-unit id="conversationsTitleChannels" datatype="html">
+        <source>Rooms</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/conversations/conversations-list/conversations-list.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <target state="translated">Räume</target>
+      </trans-unit>
+      <trans-unit id="conversationsTitleGroups" datatype="html">
+        <source>Persons</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/conversations/conversations-list/conversations-list.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <target state="translated">Personen</target>
+      </trans-unit>
+      <trans-unit id="separatorToday" datatype="html">
+        <source>Today</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/messages-list/separator/separator.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <target state="translated">Heute</target>
+      </trans-unit>
+      <trans-unit id="inputBarPlaceholder" datatype="html">
+        <source>Write message …</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/conversation/input-bar/input-bar.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <target state="translated">Nachricht schreiben …</target>
+      </trans-unit>
+      <trans-unit id="inputBarSend" datatype="html">
+        <source>Send</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/conversation/input-bar/input-bar.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <target state="translated">Senden</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

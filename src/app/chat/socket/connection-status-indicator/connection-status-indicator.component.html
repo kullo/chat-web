@@ -1,0 +1,21 @@
+<div class="dot">
+  <span
+    [class.connected]="isConnected"
+    [class.connecting]="isConnecting"
+    >⬤</span>
+</div>
+
+<div class="status-text">
+  <span *ngIf="isConnected">online</span>
+  <span *ngIf="isConnecting">connecting</span>
+</div>
+
+<button class="ahref arrow-block">
+  <div class="arrow-down"></div>
+</button>
+
+<div class="popup">
+  <ul>
+    <li><button class="ahref" (click)="logoutRequested.emit()">Logout</button></li>
+  </ul>
+</div>

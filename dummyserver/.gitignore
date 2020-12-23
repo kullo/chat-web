@@ -1,0 +1,7 @@
+# Python
+__pycache__/
+venv/
+
+# Data
+database_dir/*.json
+blob_dir/*.bin

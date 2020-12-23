@@ -1,0 +1,50 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  height: 110px;
+  width: 100%;
+
+  border-top: 1px solid #17161e;
+}
+
+.left {
+  display: block;
+  flex-basis: 30px + 80px + 15px;
+  flex-grow: 0;
+
+  app-user-picture {
+    height: 80px;
+    width: 80px;
+
+    margin-left: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+  }
+}
+
+.right {
+  display: block;
+  flex-grow: 1;
+
+  .name {
+    margin-top: 22px;
+
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: normal;
+    font-size: 1.3rem;
+    line-height: 1em;
+  }
+
+  .position {
+    margin-top: 8px;
+    margin-bottom: 10px;
+
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: normal;
+    font-size: 0.8rem;
+    line-height: 1em;
+  }
+}

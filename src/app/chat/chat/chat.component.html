@@ -1,0 +1,15 @@
+<div class="chat-container">
+  <div class="left" #leftSidebar>
+    <header>
+      <img class="logo" src="/assets/logo.png" />
+    </header>
+
+    <app-current-user-block (logoutRequested)="onLogoutRequested()"></app-current-user-block>
+
+    <app-conversations-list></app-conversations-list>
+  </div>
+
+  <div class="right">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,103 @@
+@import 'buttons.less';
+
+:host {
+  position: relative;
+  display: inline-block;
+  height: 16px;
+  width: auto;
+  overflow: visible;
+}
+
+.dot {
+  display: block;
+  float: left;
+  width: 8px;
+  margin-right: 8px;
+
+  height: 16px;
+  line-height: 16px;
+
+  font-size: 8px;
+  text-align: center;
+
+  span {
+    color: red;
+  }
+  span.connected {
+    color: green;
+  }
+  span.connecting {
+    color: yellow;
+  }
+}
+
+.status-text {
+  display: block;
+  float: left;
+
+  height: 16px;
+  line-height: 16px;
+
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: normal;
+  font-size: 0.7rem;
+
+  text-transform: uppercase;
+}
+
+.arrow-block {
+  display: block;
+  float: left;
+
+  margin-left: 3px;
+
+  width: 16px;
+  height: 16px;
+
+  .arrow-down {
+    position: relative;
+    top: -2px;
+    left: 4.5px;
+
+    height: 0;
+    width: 0;
+    border-bottom: 7.071068px solid white;
+    border-right: 7.071068px solid transparent;
+    transform: rotate(-45deg);
+  }
+}
+
+.popup {
+  visibility: hidden;
+  width: 100px;
+  height: 40px;
+  background-color: white;
+
+  cursor: default;
+
+  position: absolute;
+  top: 14px;
+  right: 0;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+    li {
+      height: 20px;
+      line-height: 20px;
+
+      button {
+        display: inline-block;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.arrow-block:focus ~ .popup, // .arrow-block and .popup must be siblings (https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_selectors)
+.popup:hover // keep popup alive when button loses focus due to menu clicks
+{
+  visibility: visible;
+}

@@ -1,0 +1,5 @@
+<div class="separator-container">
+  <span *ngIf="today()" i18n="@@separatorToday">Today</span>
+  <span *ngIf="!today()">{{ formattedDate() }}</span>
+  <hr />
+</div>

@@ -1,0 +1,27 @@
+<section>
+  <h2 i18n="@@conversationsTitleChannels">Rooms</h2>
+  <a class="edit" [routerLink]="['rooms_edit']" i18n="@@conversationsTitleChannelsAdd">all rooms</a>
+
+  <ul *ngIf="channels.length > 0" class="conversationslist-content">
+    <li *ngFor="let conversation of channels" routerLinkActive="active">
+      <a [routerLink]="[conversation.id]">{{ conversation.title }}</a>
+    </li>
+  </ul>
+  <p *ngIf="channels.length == 0" class="empty conversationslist-content">
+    No rooms joined
+  </p>
+</section>
+
+<section>
+  <h2 i18n="@@conversationsTitleGroups">Persons</h2>
+  <a class="edit" [routerLink]="['persons_edit']" i18n="@@conversationsTitleGroupsAdd">add new Chat</a>
+
+  <ul *ngIf="groups.length > 0" class="conversationslist-content">
+    <li *ngFor="let conversation of groups" routerLinkActive="active">
+      <a [routerLink]="[conversation.id]">{{ conversation.title }}</a>
+    </li>
+  </ul>
+  <p *ngIf="groups.length == 0" class="empty conversationslist-content">
+    No personal chats
+  </p>
+</section>

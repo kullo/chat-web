@@ -1,0 +1,39 @@
+<form class="fileDropForm" appDropZone (filesDropped)="onFilesDropped($event)">
+  <div class="column">
+    <app-conversation-header [title]="title" [participantsCount]="participantsCount"></app-conversation-header>
+
+    <div class="messageslist">
+      <div class="scrollcontainer" #scrollMe>
+        <div class="ss-scrolling">
+          <div class="top-spacer"></div>
+          <ng-container *ngFor="let item of items; let i = index">
+            <app-separator *ngIf="isSeparator(item)" [date]="item.date" ></app-separator>
+            <app-message *ngIf="!isSeparator(item)"
+              [data]="item" [conversationId]="conversationId"
+              (reactionAdded)="onReactionAdded($event)"
+              ></app-message>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="send-now-overlay">
+        <div class="send-now" #sendNow>
+          Send now
+        </div>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <div class="input-container-content">
+        <app-input-bar *ngIf="joined"
+          (textSubmitted)="onNewMessageSubmitted($event)">
+        </app-input-bar>
+        <div class="add-to-message-overlay">
+          <div class="add-to-message" #addToMessage>
+            Add to message
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

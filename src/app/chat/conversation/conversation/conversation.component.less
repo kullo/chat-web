@@ -1,0 +1,150 @@
+@import 'colors.less';
+
+:host {
+  height: 100%;
+  display: block;
+}
+
+.fileDropForm {
+  height: 100%;
+  position: relative;
+
+  .column {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    app-conversation-header {
+      // not part of the flexing
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 84px;
+      background-color: fade(@darkBlue, 60);
+      z-index: 3;
+    }
+
+    .messageslist {
+      flex-grow: 1;
+      position: relative;
+
+      .scrollcontainer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+
+        .top-spacer {
+          // same height as header, to allow scrolling all real content into fully visible area
+          height: 84px;
+        }
+      }
+
+      .send-now-overlay {
+        display: none;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 20px;
+        padding-top: 84px + 20px;
+
+        .send-now {
+          height: 100%;
+          width: 100%;
+
+          background-color: rgba(255, 255, 255, 0.75);
+          border: 4px solid fade(@orange, 66%);
+          border-radius: 10px;
+
+          font-family: Ubuntu, sans-serif;
+          font-size: 1.1rem;
+          color: @orange;
+
+          // xy-center content
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .send-now.dragover {
+          border-color: @orange;
+        }
+      }
+    }
+
+    .input-container {
+      flex-grow: 0;
+      flex-basis: 78px;
+      background-color: #d4d4d6;
+      padding: 12px;
+
+      .input-container-content {
+        height: 100%;
+        position: relative;
+
+        app-input-bar {
+          display: block;
+        }
+
+        .add-to-message-overlay {
+          display: none;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+
+          .add-to-message {
+            height: 100%;
+            width: 100%;
+
+            background-color: rgba(255, 255, 255, 0.75);
+            border: 4px solid fade(@orange, 66%);
+            border-radius: 10px;
+
+            font-family: Ubuntu, sans-serif;
+            font-size: 1.1rem;
+            color: @orange;
+
+            // xy-center content
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .add-to-message.dragover {
+            border-color: @orange;
+          }
+        }
+      }
+    }
+  }
+}
+
+.fileDropForm.dragover {
+  .column {
+    .messageslist {
+      .send-now-overlay {
+        display: block;
+      }
+    }
+
+    .input-container {
+      .input-container-content {
+        .add-to-message-overlay {
+          display: block;
+        }
+      }
+    }
+  }
+}
